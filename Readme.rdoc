@@ -14,8 +14,8 @@ Example use:
 And in - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay :
          - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay 
          {
-         	 MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
-	         polylineView.strokeColor = ((GPXTrackPolyLine *)overlay).color;
-	         polylineView.lineWidth = 1.5;
-	         return polylineView;
+         	MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+         	polylineView.strokeColor = ((GPXTrackPolyLine *)overlay).color;
+         	polylineView.lineWidth = 1.5;
+         	return polylineView;
          }
