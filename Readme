@@ -1,0 +1,25 @@
+= iOS GPX Parser
+
+Copyright (C) 2012 Krystof Celba mailto:kristofc97@gmail.com
+
+
+== Examples
+
+Example use:
+```Objective-C
+GPXParser *gpxParser = [[GPXParser alloc] initWithGPXFile:@"AirSpace.gpx"];
+NSArray *airSpace = [gpxParser getTracks];
+[mapView addOverlays:airSpace];
+```
+
+And in - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay :
+
+```Objective-C
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay 
+{
+	MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:overlay];
+	polylineView.strokeColor = ((GPXTrackPolyLine *)overlay).color;
+	polylineView.lineWidth = 1.5;
+	return polylineView;
+}
+```
